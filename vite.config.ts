@@ -65,7 +65,7 @@ export default defineConfig({
       dts: true,
     }),
   ],
-  base,
+  base: '/ouyestudio/'
   build: {
     sourcemap: false,
     outDir: 'out',
