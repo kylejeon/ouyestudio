@@ -5,11 +5,8 @@
     <title>사진 편집기</title>
     <script>
       // GitHub Pages SPA 리다이렉트 처리
-      // 404 페이지에서 실제 경로를 sessionStorage에 저장하고 index.html로 리다이렉트
       sessionStorage.redirect = location.href;
-      location.replace(
-        location.pathname.split('/').slice(0, -1).join('/') + '/index.html'
-      );
+      location.replace('/');
     </script>
   </head>
   <body>
