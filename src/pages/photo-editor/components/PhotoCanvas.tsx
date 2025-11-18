@@ -88,14 +88,14 @@ const PhotoCanvas = forwardRef<HTMLCanvasElement, PhotoCanvasProps>(({
     } else if (isTablet) {
       // 태블릿: 중간 크기
       if (isHorizontalMode) {
-        return { width: 480, height: 320 };  // 3:2 비율
+        return { width: 600, height: 400 };  // 3:2 비율 (가로가 더 김)
       } else {
         return { width: 320, height: 480 };  // 2:3 비율
       }
     } else {
       // 데스크톱: 기존 크기
       if (isHorizontalMode) {
-        return { width: 600, height: 400 };  // 3:2 비율
+        return { width: 600, height: 400 };  // 3:2 비율 (가로가 더 김)
       } else {
         return { width: 400, height: 600 };  // 2:3 비율
       }
@@ -112,6 +112,11 @@ const PhotoCanvas = forwardRef<HTMLCanvasElement, PhotoCanvasProps>(({
 
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
+  }, [isHorizontalMode]);
+
+  // 레이아웃 변경 시 displaySize 즉시 업데이트
+  useEffect(() => {
+    setDisplaySize(getDisplaySize());
   }, [isHorizontalMode]);
 
   // 이미지 로드 및 캐싱
