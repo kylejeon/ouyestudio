@@ -1,4 +1,4 @@
-import { useState, useRef, useCallback } from 'react';
+import { useState, useRef, useCallback, useEffect } from 'react';
 import PhotoCanvas from './components/PhotoCanvas';
 import PhotoUploader from './components/PhotoUploader';
 import LayoutSelector from './components/LayoutSelector';
@@ -705,6 +705,15 @@ export default function PhotoEditor() {
     setIsTextMode(false);
   }, [handleAddText]);
 
+  useEffect(() => {
+    // 애드센스 광고 로드
+    try {
+      ((window as any).adsbygoogle = (window as any).adsbygoogle || []).push({});
+    } catch (e) {
+      console.error('AdSense error:', e);
+    }
+  }, []);
+
   return (
     <div className="min-h-screen bg-gray-50">
       {/* 헤더 */}
@@ -872,6 +881,19 @@ export default function PhotoEditor() {
               )}
             </div>
           </div>
+        </div>
+      </div>
+
+      {/* 하단 광고 영역 */}
+      <div className="max-w-7xl mx-auto px-4 py-6">
+        <div className="bg-white rounded-lg shadow-sm p-4">
+          <div className="text-center text-xs text-gray-400 mb-2">Advertisement</div>
+          <ins className="adsbygoogle"
+               style={{ display: 'block' }}
+               data-ad-client="ca-pub-9037816875196395"
+               data-ad-slot="auto"
+               data-ad-format="auto"
+               data-full-width-responsive="true"></ins>
         </div>
       </div>
     </div>

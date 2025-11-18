@@ -1,6 +1,16 @@
 import { Link } from 'react-router-dom';
+import { useEffect } from 'react';
 
 export default function Home() {
+  useEffect(() => {
+    // 애드센스 광고 로드
+    try {
+      ((window as any).adsbygoogle = (window as any).adsbygoogle || []).push({});
+    } catch (e) {
+      console.error('AdSense error:', e);
+    }
+  }, []);
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
       <div className="container mx-auto px-4 py-16">
@@ -95,6 +105,19 @@ export default function Home() {
               </p>
             </div>
           </div>
+        </div>
+      </div>
+
+      {/* 하단 광고 영역 */}
+      <div className="container mx-auto px-4 pb-8">
+        <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-sm p-4">
+          <div className="text-center text-xs text-gray-400 mb-2">Advertisement</div>
+          <ins className="adsbygoogle"
+               style={{ display: 'block' }}
+               data-ad-client="ca-pub-9037816875196395"
+               data-ad-slot="auto"
+               data-ad-format="auto"
+               data-full-width-responsive="true"></ins>
         </div>
       </div>
     </div>
